@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NN | Labelizer-test 27 juli</title>
+<style>
+:root { color-scheme: light;
+  --page:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --mut:#898781;
+  --grid:#e1e0d9; --border:rgba(11,11,11,.10);
+  --crit:#d03b3b; --warn:#fab219; --good:#0ca30c; --goodtxt:#006300; --bar:#2a78d6; }
+@media (prefers-color-scheme: dark) {
+  :root { color-scheme: dark;
+    --page:#0d0d0d; --surface:#1a1a19; --ink:#fff; --ink2:#c3c2b7; --mut:#898781;
+    --grid:#2c2c2a; --border:rgba(255,255,255,.10); --goodtxt:#0ca30c; --bar:#3987e5; } }
+* { box-sizing:border-box; margin:0; }
+body { background:var(--page); color:var(--ink); font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif; padding:0 0 80px; }
+.wrap { max-width:1120px; margin:0 auto; padding:0 24px; }
+header { padding:40px 0 18px; }
+h1 { font-size:26px; letter-spacing:-.01em; }
+.sub { color:var(--ink2); margin-top:6px; font-size:13.5px; }
+.tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:14px 0 20px; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px 18px; }
+.tile .v { font-size:28px; font-weight:700; letter-spacing:-.02em; }
+.tile .l { color:var(--ink2); font-size:13px; margin-top:2px; }
+.callout { background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--warn); border-radius:10px; padding:14px 18px; margin:0 0 14px; font-size:14.5px; }
+h2 { font-size:18px; margin:34px 0 4px; }
+.desc { color:var(--ink2); font-size:13.5px; margin-bottom:14px; max-width:80ch; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+.tblwrap { overflow-x:auto; }
+table { width:100%; border-collapse:collapse; font-size:13.5px; }
+th { text-align:left; color:var(--mut); font-size:11.5px; text-transform:uppercase; letter-spacing:.05em; font-weight:600; padding:10px 12px; border-bottom:1px solid var(--grid); }
+td { padding:8px 12px; border-bottom:1px solid var(--grid); font-variant-numeric:tabular-nums; }
+tr:last-child td { border-bottom:none; }
+tbody tr:hover { background:color-mix(in srgb, var(--ink) 4%, transparent); }
+td.t { font-weight:550; max-width:330px; }
+td.mut { color:var(--mut); font-size:12.5px; }
+td.bad { color:var(--crit); font-weight:650; }
+td.goodtxt { color:var(--goodtxt); font-weight:650; }
+.badge { display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:650; padding:3px 10px; border-radius:99px; white-space:nowrap; color:var(--ink); }
+.badge .dot { width:7px; height:7px; border-radius:99px; }
+.b-crit { background:color-mix(in srgb, var(--crit) 13%, transparent); } .b-crit .dot { background:var(--crit); }
+.b-warn { background:color-mix(in srgb, var(--warn) 20%, transparent); } .b-warn .dot { background:var(--warn); }
+.search input { width:100%; max-width:360px; padding:8px 12px; margin-bottom:12px; border-radius:8px; border:1px solid var(--grid); background:var(--surface); color:var(--ink); font:inherit; font-size:13.5px; }
+.foot { color:var(--mut); font-size:12.5px; margin-top:30px; }
+</style>
+</head>
+<body>
+
+
+<header class="wrap">
+  <h1>Labelizer-test | 27 juli · gesplitst op CTR 1.6%</h1>
+  <div class="sub">Venster 27 jun t/m 27 jul 2026 (30d) · filters: ROAS &lt; 1.64 | CTR &lt; 1.53% | spend >= €15 zonder conv · binnen elke groep gesorteerd op CTR aflopend</div>
+</header>
+
+<div class="wrap">
+  <div class="tiles">
+    <div class="tile"><div class="v">75</div><div class="l">geflagde producten | € 3525 spend</div></div>
+    <div class="tile"><div class="v" style="color:var(--goodtxt)">34</div><div class="l">CTR boven 1.6% | advertentie werkt, pagina niet</div></div>
+    <div class="tile"><div class="v" style="color:var(--crit)">41</div><div class="l">CTR onder 1.6% | advertentie spreekt al niet aan</div></div>
+    <div class="tile"><div class="v" style="color:var(--warn)">36</div><div class="l">in prijstest | niet excluden tot ~7 aug</div></div>
+  </div>
+
+  <div class="callout"><strong>Hoe je dit leest:</strong> hoge CTR + geen conversies = de foto/prijs trekt clicks maar de productpagina of het aanbod sluit niet | daar kan een prijstest of PDP-fix nog iets redden. Lage CTR + lage ROAS = het product spreekt al in de advertentie niet aan | daar valt niks te redden, excluden.</div>
+
+  <h2>CTR boven 1.6% (34 producten)</h2>
+  <p class="desc">Aflopend op CTR. De klik komt binnen, de verkoop niet | offer-probleem, niet traffic-probleem.</p>
+  <div class="search"><input type="search" placeholder="Zoek…" oninput="f(this,'t1')"></div>
+  <div class="card tblwrap"><table id="t1"><thead><tr><th>Product</th><th>CTR</th><th>Spend €</th><th>Clicks</th><th>CPC €</th><th>Conv</th><th>ROAS</th><th>Reden geflagd</th><th>Advies</th></tr></thead><tbody>
+<tr><td class='t'>Black Contrast Trim Knit Mini Dress for Women</td><td class='goodtxt'>4.66%</td><td>18</td><td>38</td><td>0.47</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Button Front Midi Shirt Dress Summer Women</td><td class='goodtxt'>3.49%</td><td>51</td><td>139</td><td>0.37</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Floral Bohemian V Neck Maxi Dress Autumn Women</td><td class='goodtxt'>3.35%</td><td>25</td><td>85</td><td>0.29</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Women’s Elegant Block Heel Loafers</td><td class='goodtxt'>2.55%</td><td>62</td><td>203</td><td>0.31</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Hooded Utility Jacket for Women</td><td class='goodtxt'>2.49%</td><td>63</td><td>164</td><td>0.38</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Sleeveless A Line Maxi Dress Summer Women</td><td class='goodtxt'>2.48%</td><td>20</td><td>77</td><td>0.26</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Tailored Single Button Blazer Wide Leg Trouser Suit Women</td><td class='goodtxt'>2.44%</td><td>33</td><td>65</td><td>0.50</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Pleated Wrap Waist Side Split Midi Dress Evening Women</td><td class='goodtxt'>2.3%</td><td>32</td><td>87</td><td>0.37</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Ruched Lace Bodycon Midi Dress Cocktail Women</td><td class='goodtxt'>2.3%</td><td>18</td><td>76</td><td>0.23</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Floral Maxi Dress Summer Women</td><td class='goodtxt'>2.27%</td><td>24</td><td>67</td><td>0.35</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Ruched High Neck Side Split Maxi Dress Wedding Guest</td><td class='goodtxt'>2.23%</td><td>26</td><td>82</td><td>0.32</td><td>0.0</td><td>0.08</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Women’s Elegant Sleeveless Blouse</td><td class='goodtxt'>2.11%</td><td>33</td><td>112</td><td>0.30</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Women’s Leather Mule Flats</td><td class='goodtxt'>2.07%</td><td>61</td><td>191</td><td>0.32</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Women’s Casual Summer Sandals</td><td class='goodtxt'>2.01%</td><td>20</td><td>88</td><td>0.22</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Women’s Orthopedic Knit Slip On Shoes</td><td class='goodtxt'>2.0%</td><td>36</td><td>78</td><td>0.46</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Women’s Flat Ankle Strap Sandals</td><td class='goodtxt'>1.95%</td><td>56</td><td>180</td><td>0.31</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Women’s Textured Strap Stiletto Heels</td><td class='goodtxt'>1.93%</td><td>22</td><td>54</td><td>0.42</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Floral Chiffon V Neck A Line Midi Dress Summer Women</td><td class='goodtxt'>1.92%</td><td>16</td><td>51</td><td>0.31</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Ruched Strapless Midi Dress Cocktail Women</td><td class='goodtxt'>1.89%</td><td>59</td><td>212</td><td>0.28</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Women’s Elegant Strap Heels</td><td class='goodtxt'>1.88%</td><td>119</td><td>554</td><td>0.21</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Polka Dot Halter Mini Dress Cocktail Women</td><td class='goodtxt'>1.87%</td><td>39</td><td>90</td><td>0.43</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Floral A Line Maxi Dress Summer Women</td><td class='goodtxt'>1.86%</td><td>18</td><td>58</td><td>0.31</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Embroidered Floral Tie Strap Maxi Dress Wedding Guest</td><td class='goodtxt'>1.84%</td><td>41</td><td>133</td><td>0.31</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Women’s Orthopedic Comfort Sandals</td><td class='goodtxt'>1.79%</td><td>33</td><td>105</td><td>0.31</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Women’s Textured Button Up Summer Shirt</td><td class='goodtxt'>1.77%</td><td>40</td><td>85</td><td>0.47</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Striped Long Shirt Dress Summer Women</td><td class='goodtxt'>1.75%</td><td>44</td><td>67</td><td>0.65</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Floral Pleated A Line Maxi Dress Wedding Guest</td><td class='goodtxt'>1.74%</td><td>30</td><td>108</td><td>0.28</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Pleated Flutter Sleeve Maxi Dress Wedding Guest</td><td class='goodtxt'>1.68%</td><td>37</td><td>98</td><td>0.38</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Crochet Knit Chevron Maxi Dress Summer Women</td><td class='goodtxt'>1.63%</td><td>18</td><td>64</td><td>0.27</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Women’s Embroidered Mesh Heels</td><td class='goodtxt'>1.62%</td><td>36</td><td>136</td><td>0.26</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Off Shoulder Lace Cutout Maxi Dress Wedding Guest</td><td class='goodtxt'>1.62%</td><td>46</td><td>145</td><td>0.32</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Printed Button Front Shirt Maxi Dress Summer Women</td><td class='goodtxt'>1.61%</td><td>31</td><td>95</td><td>0.33</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Floral Sleeveless Maxi Dress Summer Women</td><td class='goodtxt'>1.61%</td><td>24</td><td>52</td><td>0.46</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Satin Feel Ruched Halter Maxi Dress Evening Women</td><td class='goodtxt'>1.6%</td><td>22</td><td>73</td><td>0.31</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+  </tbody></table></div>
+
+  <h2>CTR onder 1.6% (41 producten)</h2>
+  <p class="desc">Aflopend op CTR. Advertentie spreekt niet aan én er wordt niet (genoeg) gekocht.</p>
+  <div class="search"><input type="search" placeholder="Zoek…" oninput="f(this,'t2')"></div>
+  <div class="card tblwrap"><table id="t2"><thead><tr><th>Product</th><th>CTR</th><th>Spend €</th><th>Clicks</th><th>CPC €</th><th>Conv</th><th>ROAS</th><th>Reden geflagd</th><th>Advies</th></tr></thead><tbody>
+<tr><td class='t'>Women’s Beaded Comfort Sandals</td><td class='bad'>1.56%</td><td>22</td><td>64</td><td>0.35</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Printed Belted Maxi Shirt Dress Summer Women</td><td class='bad'>1.52%</td><td>24</td><td>117</td><td>0.20</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Floral One Shoulder Maxi Dress Summer Women</td><td class='bad'>1.51%</td><td>13</td><td>28</td><td>0.47</td><td>0.0</td><td>0.00</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Floral Chiffon Ruffle Maxi Dress Summer Women</td><td class='bad'>1.5%</td><td>49</td><td>132</td><td>0.37</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Floral Halter Maxi Dress Wedding Guest</td><td class='bad'>1.5%</td><td>43</td><td>131</td><td>0.33</td><td>0.5</td><td>0.56</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Satin Feel Ruffle Halter Maxi Dress Evening Women</td><td class='bad'>1.49%</td><td>110</td><td>297</td><td>0.37</td><td>2.0</td><td>1.14</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Floral Ruffle Strap Maxi Dress Summer Women</td><td class='bad'>1.49%</td><td>63</td><td>147</td><td>0.43</td><td>2.0</td><td>1.53</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Satin Feel High Split Maxi Dress Evening Women</td><td class='bad'>1.48%</td><td>85</td><td>289</td><td>0.29</td><td>3.0</td><td>1.09</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Floral One Shoulder Pleated Maxi Dress Evening Women</td><td class='bad'>1.44%</td><td>63</td><td>235</td><td>0.27</td><td>2.0</td><td>1.51</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Strapless Pleated Maxi Dress Wedding Guest</td><td class='bad'>1.43%</td><td>15</td><td>37</td><td>0.40</td><td>0.0</td><td>0.00</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Strapless Ruched Maxi Dress with Thigh Split – Women&#x27;s Evening Gown</td><td class='bad'>1.42%</td><td>46</td><td>107</td><td>0.43</td><td>1.4</td><td>1.18</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Halter Ruffle Tiered Maxi Dress Summer Women</td><td class='bad'>1.41%</td><td>32</td><td>90</td><td>0.35</td><td>1.0</td><td>1.55</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Chiffon Off Shoulder Maxi Dress Evening Women</td><td class='bad'>1.41%</td><td>46</td><td>117</td><td>0.39</td><td>1.0</td><td>1.09</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Boho Floral Side Slit Maxi Dress Summer Women</td><td class='bad'>1.4%</td><td>32</td><td>119</td><td>0.27</td><td>1.0</td><td>1.56</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Corset Lace-Up Full Skirt Midi Dress Cocktail Women</td><td class='bad'>1.4%</td><td>127</td><td>312</td><td>0.41</td><td>4.0</td><td>1.47</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Pleated Cutout Midi Dress Cocktail Women</td><td class='bad'>1.38%</td><td>21</td><td>68</td><td>0.31</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Polka Dot A Line Maxi Dress Summer Women</td><td class='bad'>1.36%</td><td>54</td><td>181</td><td>0.30</td><td>1.0</td><td>0.94</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Floral Applique Strapless Corset Mini Dress Cocktail Women</td><td class='bad'>1.32%</td><td>36</td><td>98</td><td>0.37</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Women’s Leopard Slingback Stiletto Heels</td><td class='bad'>1.32%</td><td>14</td><td>34</td><td>0.42</td><td>0.0</td><td>0.00</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Floral Bodycon Mini Dress Cocktail Women</td><td class='bad'>1.29%</td><td>21</td><td>65</td><td>0.32</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Striped Twist Knot Midi Shirt Dress Summer Women</td><td class='bad'>1.29%</td><td>22</td><td>76</td><td>0.29</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Floral Midi Sundress Summer Women</td><td class='bad'>1.28%</td><td>35</td><td>106</td><td>0.33</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Gingham Full Skirt Midi Dress Summer Women</td><td class='bad'>1.28%</td><td>33</td><td>113</td><td>0.29</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Satin Feel Ruched Waist Maxi Dress Evening Women</td><td class='bad'>1.28%</td><td>146</td><td>399</td><td>0.37</td><td>3.0</td><td>0.64</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Floral Sweetheart Corset Midi Dress Cocktail Women</td><td class='bad'>1.26%</td><td>77</td><td>205</td><td>0.37</td><td>2.0</td><td>1.20</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Floral V Neck Maxi Dress Summer Women</td><td class='bad'>1.25%</td><td>117</td><td>371</td><td>0.32</td><td>1.5</td><td>0.90</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Floral Corset Maxi Dress Wedding Guest</td><td class='bad'>1.22%</td><td>26</td><td>68</td><td>0.38</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Women’s Lace Detail Platform Heels</td><td class='bad'>1.22%</td><td>56</td><td>218</td><td>0.26</td><td>2.0</td><td>0.85</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Floral Jacquard Belted Maxi Dress Wedding Guest</td><td class='bad'>1.22%</td><td>22</td><td>82</td><td>0.27</td><td>1.0</td><td>0.05</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Halter Cutout Bodycon Maxi Dress Evening Women</td><td class='bad'>1.21%</td><td>16</td><td>87</td><td>0.18</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Strappy Maxi Dress Summer Women</td><td class='bad'>1.21%</td><td>49</td><td>155</td><td>0.32</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+<tr><td class='t'>Pearl Beaded Satin Feel Maxi Dress Evening Women</td><td class='bad'>1.17%</td><td>26</td><td>77</td><td>0.34</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Structured Square Neck Mini Dress Cocktail Women</td><td class='bad'>1.15%</td><td>349</td><td>673</td><td>0.52</td><td>12.4</td><td>1.51</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Satin Feel High Neck Midi Dress Wedding Guest</td><td class='bad'>1.13%</td><td>23</td><td>71</td><td>0.32</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Floral Chiffon Mini Dress Summer Women</td><td class='bad'>1.11%</td><td>15</td><td>56</td><td>0.27</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Floral Sweetheart Corset Midi Dress Wedding Guest</td><td class='bad'>1.11%</td><td>50</td><td>137</td><td>0.37</td><td>1.0</td><td>0.92</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Draped Satin Feel Maxi Dress Evening Women</td><td class='bad'>1.06%</td><td>167</td><td>556</td><td>0.30</td><td>5.0</td><td>1.63</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Strapless Sculpted Maxi Dress Evening Women</td><td class='bad'>1.01%</td><td>22</td><td>59</td><td>0.37</td><td>0.0</td><td>0.00</td><td class='mut'>0 conv, spend 15+</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Jacquard Halter Full Skirt Midi Dress Wedding Guest</td><td class='bad'>0.91%</td><td>49</td><td>123</td><td>0.40</td><td>1.0</td><td>1.02</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Floral Textured Sculpted Maxi Dress Wedding Guest</td><td class='bad'>0.86%</td><td>44</td><td>97</td><td>0.45</td><td>2.3</td><td>1.53</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-crit"><span class="dot"></span>Excluden</span></td></tr>
+<tr><td class='t'>Pleated Halter High Split Maxi Dress Evening Women</td><td class='bad'>0.6%</td><td>14</td><td>30</td><td>0.46</td><td>0.0</td><td>0.00</td><td class='mut'>ROAS+CTR laag</td><td><span class="badge b-warn"><span class="dot"></span>In prijstest | wachten</span></td></tr>
+  </tbody></table></div>
+
+  <p class="foot">Zelfde dataset als de test van vanochtend (313 producten, € 22.435 spend, 845 conv, blended ROAS 2.06 Google-attributie). Referentie: store-brede CTR is 1.84%.</p>
+</div>
+<script>function f(i,id){const q=i.value.toLowerCase();document.querySelectorAll('#'+id+' tbody tr').forEach(tr=>tr.style.display=tr.textContent.toLowerCase().includes(q)?'':'none')}</script>
+
+</body>
+</html>
